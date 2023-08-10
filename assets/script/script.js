@@ -2,7 +2,6 @@
 var passwordCriteria = {
   passwordLength:null, passwordCase:null, passwordCharacter: null, passwordNums:null
 }
-
 // passwordLength variable prompts the user and asks them for their password length
 passwordCriteria.passwordLength= Number(prompt("how many characters would you like your passowrd to be?","Enter a number between 8 and 128 " ));
 //checks to see if password length fits the in criteria boundaries
@@ -28,14 +27,37 @@ passwordCriteria.passwordCharacter = prompt("would your password to include spec
 while (!passwordCriteria.passwordCharacter.includes("yes") && !passwordCriteria.passwordCharacter.includes("no")){
   passwordCriteria.passwordCharacter = prompt("Would you like your password to special characters?" , "yes or no");
 }
-// 
-console.log(passwordCriteria);
-
-// generatePassword 
+// set of variables that will be used for passwords
+var upperCase = "ABDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var special = "!#$%&()*+,-./:;<=>?@[]^_`{|}~"
+// generatePassword will generate password 
 function generatePassword(){
-
-
-
+  var password = '';
+  // using for loop to set up password
+  for (var i = 0; i < passwordCriteria.passwordLength; i++) {
+    var  passwordContents = '';
+    // checks to see if user inputed lowercase, uppercase or both
+    if(passwordCriteria.passwordCase === "lowercase"){
+       passwordContents += lowerCase;
+    } else if(passwordCriteria.passwordCase === "uppercase"){
+      passwordContents += upperCase;
+    }else {
+      passwordContents += upperCase + lowerCase;
+    }
+    // checks to see if user wants numbers in their password
+    if(passwordCriteria.passwordNums === "yes "){
+      passwordContents += numbers;
+    }
+    // checks to see if user wants special chars
+    if(passwordCriteria.passwordCharacter === "yes"){
+      passwordContents += special;
+    }
+    //adds combines the strings
+    password += passwordContents.charAt(Math.floor(Math.random() * passwordContents.length));
+  }
+  return password;
 }
 
 // Get references to the #generate element
@@ -43,7 +65,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
