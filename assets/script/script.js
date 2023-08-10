@@ -6,13 +6,25 @@ while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
   alert("Please enter a valid number between 8 and 128.");
   passwordLength = Number(prompt("How many characters would you like your password to be? Enter a number between 8 and 128"));
 }
-// passwordCharacter variable promts the user and asks them for their desired password criteria 
-var passwordCharacter = prompt("would your password to include lowercase, uppercase, numeric, and or special characters?");
-// checks to see if password characters is part of the accepted criteria
-while (!passwordCharacter.includes("lowercase") && !passwordCharacter.includes("uppercase") && !passwordCharacter.includes("numeric") && !passwordCharacter.includes("special")) {
-  alert("Please provide valid password criteria (lowercase, uppercase, numeric, and/or special).");
-  passwordCharacter = prompt("Would you like your password to include lowercase, uppercase, numeric, and/or special characters?");
+// password nums asks the user if they like their password to contain numbers
+var passwordNums = prompt("Would you like your password to contain numbers?");
+// while loop checks to see if provided answers fall under the password criteria
+while (!passwordNums.includes("yes") && !passwordNums.includes("no")){
+  passwordNums = prompt("Would you like your password to contain numbers?" , "yes or no");
 }
+// password case asks the user if they would like their password to contain uppercase, lowercase or both
+var passwordCase = prompt("Would you like your password to contain uppercase, lowercase, or both");
+// while loop checks to see if provided answers fall under the password criteria
+while (!passwordCase.includes("uppercase") && !passwordCase.includes("lowercase" && !passwordCase.includes("both"))){
+  passwordCase = prompt("Would you like your password to contain uppercase, lowercase, or both?");
+}
+// passwordCharacter variable asks the user if they would like their password to contain special chars
+var passwordCharacter = prompt("would your password to include special characters?");
+// checks to see if password characters is part of the accepted criteria
+while (!passwordCharacter.includes("yes") && !passwordCharacter.includes("no")){
+  passwordCharacter = prompt("Would you like your password to special characters?" , "yes or no");
+}
+// generatePassword 
 function generatePassword(){
 
 
