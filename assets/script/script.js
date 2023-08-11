@@ -21,13 +21,16 @@ while (
   alert("Please enter a valid number between 8 and 128.");
   passwordCriteria.passwordLength = Number(
     prompt(
-      "How many characters would you like your password to be? Enter a number between 8 and 128"
+      "How many characters would you like your password to be? Enter a number between 8 and 128",
+      "Enter a number between 8 and 128 "
+
     )
   );
 }
 // password nums asks the user if they like their password to contain numbers
 passwordCriteria.passwordNums = prompt(
-  "Would you like your password to contain numbers?"
+  "Would you like your password to contain numbers?",
+  "yes or no"
 );
 // while loop checks to see if provided answers fall under the password criteria
 while (
@@ -41,7 +44,8 @@ while (
 }
 // password case asks the user if they would like their password to contain uppercase, lowercase or both
 passwordCriteria.passwordCase = prompt(
-  "Would you like your password to contain uppercase, lowercase, or both"
+  "Would you like your password to contain uppercase, lowercase, or both",
+  "lowercase, uppercase, or both"
 );
 // while loop checks to see if provided answers fall under the password criteria
 while (
@@ -50,12 +54,14 @@ while (
   !passwordCriteria.passwordCase.includes("both")
 ) {
   passwordCriteria.passwordCase = prompt(
-    "Would you like your password to contain uppercase, lowercase, or both?"
+    "Would you like your password to contain uppercase, lowercase, or both?",
+    "lowercase, uppercase, or both"
   );
 }
 // passwordCharacter variable asks the user if they would like their password to contain special chars
 passwordCriteria.passwordCharacter = prompt(
-  "would your password to include special characters?"
+  "would your password to include special characters?",
+  "yes or no"
 );
 // checks to see if password characters is part of the accepted criteria
 while (
